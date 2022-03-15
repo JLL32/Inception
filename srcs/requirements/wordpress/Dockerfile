@@ -1,10 +1,13 @@
 FROM debian:buster
 
-RUN apt install php 
-RUN apt install php-mysql
-RUN apt php-mbstring
-RUN apt install php-fpm
-
+RUN apt update
+RUN apt install wget -y
+RUN apt install php  -y
+RUN apt install php-mysql -y
+RUN apt install php-mbstring -y
+RUN apt install php-fpm -y
+RUN apt install ufw -y
+RUN apt clean
 
 WORKDIR /var/www/html
 
@@ -17,6 +20,9 @@ RUN rm index.html
 
 COPY . .
 
-RUN ufw allow php-fpm
+# RUN systemctl disable --now apache2
+# RUN ufw allow php-fpm
 
-CMD [ "php-fpm" ]
+EXPOSE 9000
+
+CMD [ "php-fpm7.3", "--nodaemonize"]
