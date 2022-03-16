@@ -18,11 +18,9 @@ RUN rm -f latest.tar.gz
 
 RUN rm index.html
 
-COPY . .
-
-# RUN systemctl disable --now apache2
-# RUN ufw allow php-fpm
+COPY ./wp-config.php ./
+COPY ./startup.sh ./
 
 EXPOSE 9000
 
-CMD [ "php-fpm7.3", "--nodaemonize"]
+CMD ["sh", "startup.sh"]
