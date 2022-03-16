@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  nginx:
+    build: "./requirements/nginx/"
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - inception
+
+  mariadb:
+    build: "./requirements/mariadb/"
+    restart: always
+    networks:
+      - inception
+
+  wordpress:
+    build: "./requirements/wordpress/"
+    restart: always
+    networks:
+      - inception
+    depends_on:
+      - mariadb
+
+networks:
+  inception:
+    name: "inception"
