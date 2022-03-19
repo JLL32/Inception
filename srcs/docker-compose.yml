@@ -7,6 +7,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    volumes:
+      - ./wordpress:/var/www/html
     networks:
       - inception
 
@@ -19,6 +21,8 @@ services:
   wordpress:
     build: "./requirements/wordpress/"
     restart: always
+    volumes:
+      - ./wordpress:/var/www/html
     networks:
       - inception
     depends_on:
