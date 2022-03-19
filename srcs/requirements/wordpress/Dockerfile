@@ -13,12 +13,10 @@ WORKDIR /var/www/html
 
 RUN wget http://wordpress.org/latest.tar.gz
 RUN tar xfz latest.tar.gz
-RUN mv wordpress/* ./
 RUN rm -f latest.tar.gz
-
 RUN rm index.html
 
-COPY ./wp-config.php ./
+COPY ./wp-config.php ./wordpress/
 
 RUN ufw allow 9000
 RUN service php7.3-fpm start
