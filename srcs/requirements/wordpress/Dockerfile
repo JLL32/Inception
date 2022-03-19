@@ -21,6 +21,9 @@ RUN rm index.html
 COPY ./wp-config.php ./
 COPY ./startup.sh ./
 
+RUN ufw allow 9000
+RUN service php7.3-fpm start
+
 EXPOSE 9000
 
-CMD ["sh", "startup.sh"]
+CMD ["php-fpm7.3", "--nodaemonize", "--allow-to-run-as-root"]
