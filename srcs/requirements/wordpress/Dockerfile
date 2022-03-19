@@ -19,7 +19,6 @@ RUN rm -f latest.tar.gz
 RUN rm index.html
 
 COPY ./wp-config.php ./
-COPY ./startup.sh ./
 
 RUN ufw allow 9000
 RUN service php7.3-fpm start
