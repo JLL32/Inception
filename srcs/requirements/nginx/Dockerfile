@@ -20,12 +20,10 @@ RUN unlink /etc/nginx/sites-enabled/default
 # installing certutil which will be used by mkcert to create our SSL certificate
 RUN apt-get -y install libnss3-tools
 # downlaoding the mkcert binary
-RUN curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest | grep browser_download_url  | grep linux-amd64 | cut -d '"' -f 4 | wget -qi -
+RUN wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-amd64
 # Copying mkcert to the binaries folder
-RUN mv mkcert-v*-linux-amd64 mkcert
-RUN chmod a+x mkcert
-RUN mv mkcert /usr/local/bin/
-
+RUN mv mkcert-v1.4.3-linux-amd64 /usr/bin/mkcert
+RUN chmod a+x /usr/bin/mkcert
 
 # creating local CA with mkcert, which will create the SSL certificate
 RUN mkcert -install
