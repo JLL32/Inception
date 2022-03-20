@@ -8,7 +8,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./wordpress:/var/www/html
+      - wordpress:/var/www/html
     networks:
       - inception
     depends_on:
@@ -24,7 +24,7 @@ services:
     build: "./requirements/wordpress/"
     restart: always
     volumes:
-      - ./wordpress:/var/www/html
+      - wordpress:/var/www/html
     networks:
       - inception
     depends_on:
@@ -33,3 +33,6 @@ services:
 networks:
   inception:
     name: "inception"
+
+volumes:
+  wordpress:
