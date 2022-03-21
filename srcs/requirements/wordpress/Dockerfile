@@ -6,7 +6,6 @@ RUN apt install php  -y
 RUN apt install php-mysql -y
 RUN apt install php-mbstring -y
 RUN apt install php-fpm -y
-RUN apt install ufw -y
 RUN apt clean
 
 WORKDIR /var/www/html
@@ -18,7 +17,10 @@ RUN rm index.html
 
 COPY ./wp-config.php ./wordpress/
 
-RUN ufw allow 9000
+RUN echo "listen = 0.0.0.0:9000" >> /etc/php/7.3/fpm/pool.d/www.conf
+RUN sed -i 's/user = nobody/user = root/g'  /etc/php/7.3/fpm/pool.d/www.conf
+RUN sed -i 's/group = nobody/group = root/g'  /etc/php/7.3/fpm/pool.d/www.conf
+
 RUN service php7.3-fpm start
 
 EXPOSE 9000
