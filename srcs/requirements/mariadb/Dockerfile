@@ -20,4 +20,4 @@ COPY ./startup.sh ./
 
 EXPOSE 3306
 
-CMD ["sh", "startup.sh"]
+CMD [mysqld_safe]
