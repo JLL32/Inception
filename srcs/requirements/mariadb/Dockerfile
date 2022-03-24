@@ -6,6 +6,7 @@ RUN apt clean
 
 RUN apt-get update && apt-get install -y procps && rm -rf /var/lib/apt/lists/*
 
+RUN sed -i 's/127.0.0.1/0.0.0.0/' /etc/mysql/mariadb.conf.d/50-server.cnf
 COPY ./wordpress.sql ./
 COPY ./setup.sh ./
 RUN sh setup.sh
