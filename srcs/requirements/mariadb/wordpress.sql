@@ -423,7 +423,7 @@ CREATE TABLE `wp_users` (
 --
 
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
-(1, 'jll32', '$P$BObpshWrfc3z2RpCisShA5jWZT3VXR.', 'jll32', 'eabduljalil@outlook.com', 'https://localhost', '2020-12-08 15:56:16', '', 0, 'jll32');
+(1, 'jll32', 'c0bbbb04621a642ab7ee0f9cf0bca778', 'jll32', 'eabduljalil@outlook.com', 'https://localhost', '2020-12-08 15:56:16', '', 0, 'jll32');
 
 --
 -- Indexes for dumped tables
