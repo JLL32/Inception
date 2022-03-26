@@ -7,3 +7,5 @@ mysql -e "GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO ${DB_USER}@'%' IDENTIFIED BY '
 
 mysql -u root --skip-password ${DB_NAME} < wordpress.sql
 service mysql stop
+
+mysqld_safe
