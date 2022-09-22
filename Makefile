@@ -6,7 +6,7 @@ up: build
 
 build:
 	mkdir -p /home/${VM_NAME}/data/wordpress
-	mkdir -p /home/${VM_NAME}/data/wordpress
+	mkdir -p /home/${VM_NAME}/data/mariadb
 	cd srcs && docker compose build
 
 down:
@@ -14,4 +14,4 @@ down:
 
 rm:
 	sudo rm -rf /home/${VM_NAME}/data/wordpress/*
-	sudo rm -rf /home/${VM_NAME}/data/wordpress/*
+	sudo rm -rf /home/${VM_NAME}/data/mariadb/*
