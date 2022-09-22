@@ -37,7 +37,18 @@ services:
 networks:
   inception:
     name: "inception"
+    driver: bridge
 
 volumes:
   wordpress:
-  mariadb:
+      driver: local
+      driver_opts:
+        type: none
+        device: "$HOME/data/wp-data"
+        o: bind
+  mariadb: 
+      driver: local
+      driver_opts:
+        type: none
+        device: "$HOME/data/db-data"
+        o: bind
